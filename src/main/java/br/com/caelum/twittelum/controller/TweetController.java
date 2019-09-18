@@ -64,7 +64,14 @@ public class TweetController {
 
         return ResponseEntity.ok().body("Tweet removido com sucesso");
 
-
     }
 
+    @GetMapping("/deleta-todos-os-tweets-da-vida")
+    public ResponseEntity deleta() {
+
+        tweetDao.deleteAll();
+
+        return ResponseEntity.ok().body("Todos os tweets foram apagados");
+
+    }
 }
