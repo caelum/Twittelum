@@ -14,4 +14,5 @@ public interface UsuarioDao extends Repository<Usuario, Long> {
 
     Optional<Usuario> findByUsernameAndSenha(String username, String senha);
 
+    void deleteAll();
 }

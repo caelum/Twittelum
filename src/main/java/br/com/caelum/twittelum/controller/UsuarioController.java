@@ -8,10 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuario")
@@ -53,6 +50,15 @@ public class UsuarioController {
         }
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario não encontrado na base");
+
+    }
+
+    @GetMapping("/deleta-todos-os-usuarios-da-vida")
+    public ResponseEntity deleta() {
+
+        usuarioDao.deleteAll();
+
+        return ResponseEntity.ok().body("Todos os usuários foram apagados");
 
     }
 
